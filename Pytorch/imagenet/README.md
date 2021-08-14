@@ -1,4 +1,4 @@
-# Pytorch:-ImageNet-SENG Example
+# Pytorch:ImageNet-SENG Example
 
 ## Introduction
 
