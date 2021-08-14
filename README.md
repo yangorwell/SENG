@@ -6,10 +6,13 @@ This is an implementation of the sketchy natural gradient method **SENG**.
 In this repository, we offer MindSpore and Pytorch codes of SENG in two subfolders, respectively. The codes are organized as follows:
 
 ```Current-Folder
-    ├── MindSpore    : Url of MindSpore Implementation on ImageNet-1k with ResNet50. See README in the subfolder for more details.  
+    ├── MindSpore    : Url of MindSpore Implementation on ImageNet-1k with ResNet50. 
+    |                   See README in the subfolder for more details.  
     └── PyTorch
-          ├──cifar10 : PyTorch Implementation on CIFAR10 with ResNet18 and VGG16(_BN). See README in the subfolder for more details.
-          └──imagenet: PyTorch Implementation on ImageNet-1k with ResNet50. See README in the subfolder for more details.
+          ├──cifar10 : PyTorch Implementation on CIFAR10 with ResNet18 and VGG16(_BN). 
+          |            See README in the subfolder for more details.
+          └──imagenet: PyTorch Implementation on ImageNet-1k with ResNet50. 
+                       See README in the subfolder for more details.
 ```
 
 ## Contact 
