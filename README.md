@@ -21,8 +21,8 @@ In this repository, we offer MindSpore and Pytorch codes of SENG in two subfolde
 To use **SENG** on other models, please refer to the `./PyTorch/imagenet/main_seng_bs.py` or the following codes as an example:
 
   ```python
-  optimizer = optim.SGD(net.parameters(), lr=0.1, momentum=0.9, weight_decay=4e-5)
-  preconditioner = SENG(net, 0.8, update_freq=50)
+  optimizer = optim.SGD(net.parameters(), lr=0.1, momentum=0.9, weight_decay=5e-4)
+  preconditioner = SENG(net, 1.2, update_freq=200)
 
   for inputs, targets in trainloader:
      output = net(inputs)
