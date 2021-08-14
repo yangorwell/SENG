@@ -6,7 +6,7 @@ The Sketchy Empirical Natural Gradient Methods (**SENG**) is an algorithm for so
 
 Currently, **SENG** supports the convolution layer, batch normalization layer and fully-connected layer. 
 
-This repository provides an **Pytorch** implementation of **SENG** in the manuscript:
+This folder provides an **Pytorch** implementation of **SENG** in the manuscript:
 - Sketchy Empirical Natural Gradient Methods for Deep Learning (https://arxiv.org/pdf/2006.05924.pdf).
 
 ## Requirements
