@@ -1,7 +1,9 @@
 
 # The Implementation of SENG
 
-This is an implementation of the sketchy natural gradient method **SENG**. 
+The Sketchy Empirical Natural Gradient Methods (**SENG**) is an algorithm for solving large-scale deep learning problems. It utilizes efficient sketching methods to reduce the computational and memory complexity of the Empirical Natural Gradient method.
+
+Currently, **SENG** supports the convolution layer, batch normalization layer and fully-connected layer. 
 
 In this repository, we offer MindSpore and Pytorch codes of SENG in two subfolders, respectively. The codes are organized as follows:
 
