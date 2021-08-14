@@ -24,7 +24,7 @@ This folder provides a **Pytorch** implementation of **SENG** on CIFAR10 dataset
 - An example for training **VGG18_bn** on **CIFAR10** with one GPU:
 
   ```python
-  python main_seng.py --epoch 65 --arch 'vgg16_bn' --lr-decay-epoch 70 --damping 2.0 --trainset 'cifar10' --lr 0.05 --weight-decay 5e-4 --lr-scheme 'cosine' --gpu 0| tee your/store/file 
+  python main_seng.py --epoch 65 --arch 'vgg16_bn' --lr-decay-epoch 70 --damping 2.2 --trainset 'cifar10' --lr 0.05 --weight-decay 5e-4 --lr-scheme 'cosine' --gpu 0| tee your/store/file 
   ```
 
 ## The Authors
