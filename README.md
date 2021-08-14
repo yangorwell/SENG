@@ -1,5 +1,5 @@
 
-# SENG Example
+# The Implementation of SENG
 
 This is an implementation of the sketchy natural gradient method **SENG**. 
 
