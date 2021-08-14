@@ -11,7 +11,7 @@ In this repository, we offer MindSpore and Pytorch codes of SENG in two subfolde
     ├── MindSpore    : Url of MindSpore Implementation on ImageNet-1k with ResNet50. 
     |                  See README in the subfolder for more details.  
     └── PyTorch
-          ├──cifar10 : PyTorch Implementation on CIFAR10 with ResNet18 and VGG16(_BN). 
+          ├──cifar10 : PyTorch Implementation on CIFAR10 with ResNet18 and VGG16_bn. 
           |            See README in the subfolder for more details.
           └──imagenet: PyTorch Implementation on ImageNet-1k with ResNet50. 
                        See README in the subfolder for more details.
