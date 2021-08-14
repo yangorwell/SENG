@@ -20,13 +20,13 @@ This repository provides an **Pytorch** implementation of **SENG** in the manusc
 
 - First install all the requirements and download the source code. 
 
-- An example for training **ResNet-18** on **CIFAR10** with one GPUs:
+- An example for training **ResNet-18** on **CIFAR10** with one GPU:
   ```python
   python main_seng.py --epoch 65 --arch 'resnet18' --lr-decay-epoch 70 --damping 1.0 --trainset 'cifar10' --lr 0.05 --weight-decay 5e-4 --lr-scheme 'cosine' --gpu 0| tee your/store/file 
   ```
   
 
-- An example for training **VGG18_bn** on **CIFAR10** with one GPUs:
+- An example for training **VGG18_bn** on **CIFAR10** with one GPU:
 
   ```python
   python main_seng.py --epoch 65 --arch 'vgg16_bn' --lr-decay-epoch 70 --damping 2.0 --trainset 'cifar10' --lr 0.05 --weight-decay 5e-4 --lr-scheme 'cosine' --gpu 0| tee your/store/file 
