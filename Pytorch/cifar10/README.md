@@ -13,18 +13,18 @@ This folder provides a **Pytorch** implementation of **SENG** on CIFAR10 dataset
 
 ## Usage
 
-- First install all the requirements and download the source code. 
+- First install all the requirements and download the source code. Put the the dataset on any place, e.g., 'your/data/path'.
 
 - An example for training **ResNet18** on **CIFAR10** with one GPU:
   ```python
-  python main_seng.py --epoch 65 --arch 'resnet18' --lr-decay-epoch 70 --damping 1.0 --trainset 'cifar10' --lr 0.05 --weight-decay 5e-4 --lr-scheme 'cosine' --gpu 0| tee your/store/file 
+  python main_seng.py --epoch 65 --arch 'resnet18' --lr-decay-epoch 70 --damping 1.0 --trainset 'cifar10' --datadir your/data/path --lr 0.05 --weight-decay 5e-4 --lr-scheme 'cosine' --gpu 0| tee your/store/file 
   ```
   
 
 - An example for training **VGG16_bn** on **CIFAR10** with one GPU:
 
   ```
-  python main_seng.py --epoch 100 --arch 'vgg16_bn'  --damping 2.0 --trainset 'cifar10' --lr 0.05 --weight-decay 5e-4 --gpu 0| tee  your/store/file 
+  python main_seng.py --epoch 100 --arch 'vgg16_bn'  --damping 2.0 --trainset 'cifar10' --datadir your/data/path --lr 0.05 --weight-decay 5e-4 --gpu 0| tee  your/store/file 
   ```
 
 ## The Authors
