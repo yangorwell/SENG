@@ -1,21 +1,21 @@
 import torch
 import torch.nn as nn
-from .layers_ex import Conv2dEx, LinearEx, BatchNorm2dEx
+from .layers_ex import Conv2dEx, LinearEx
 
 class VGG(nn.Module):
 
     def __init__(self, features, num_classes=1000, init_weights=True):
         super(VGG, self).__init__()
         self.features = features
-        self.avgpool = nn.AvgPool2d(kernel_size=1, stride=1)
+        self.avgpool = nn.AdaptiveAvgPool2d((7, 7))
         self.classifier = nn.Sequential(
-            LinearEx(512,num_classes),
-            # nn.ReLU(True),
-            # nn.Dropout(),
-            # LinearEx(4096, 4096),
-            # nn.ReLU(True),
-            # nn.Dropout(),
-            # LinearEx(4096, num_classes),
+            LinearEx(512 * 7 * 7, 4096),
+            nn.ReLU(True),
+            nn.Dropout(),
+            LinearEx(4096, 4096),
+            nn.ReLU(True),
+            nn.Dropout(),
+            LinearEx(4096, num_classes),
         )
         if init_weights:
             self._initialize_weights()
@@ -33,7 +33,7 @@ class VGG(nn.Module):
                 nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
                 if m.bias is not None:
                     nn.init.constant_(m.bias, 0)
-            elif isinstance(m, BatchNorm2dEx):
+            elif isinstance(m, nn.BatchNorm2d):
                 nn.init.constant_(m.weight, 1)
                 nn.init.constant_(m.bias, 0)
             elif isinstance(m, LinearEx):
@@ -50,7 +50,7 @@ def make_layers(cfg, batch_norm=False):
         else:
             conv2d = Conv2dEx(in_channels, v, kernel_size=3, padding=1)
             if batch_norm:
-                layers += [conv2d, BatchNorm2dEx(v), nn.ReLU(inplace=True)]
+                layers += [conv2d, nn.BatchNorm2d(v), nn.ReLU(inplace=True)]
             else:
                 layers += [conv2d, nn.ReLU(inplace=True)]
             in_channels = v
