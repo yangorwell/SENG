@@ -1,4 +1,4 @@
-# Pytorch:ImageNet-SENG Example
+# SENG: the Pytorch version on ImageNet
 
 ## Introduction
 
