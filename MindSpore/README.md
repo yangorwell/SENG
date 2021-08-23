@@ -1,9 +1,7 @@
 
-# MindSpore-ResNet-50-SENG Example
+# Example of SENG in MindSpore for ImageNet
 
 This version of code is written in Mindspore v1.2.  Codes are available in https://gitee.com/taroxd/mindspore/tree/seng/model_zoo/official/cv/resnet50_seng
-
-
 
 
 ## Description
