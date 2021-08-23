@@ -1,4 +1,4 @@
-# Pytorch-CIFAR10-SENG Example
+# Example of SENG in Pytorch for CIFAR10
 
 ## Introduction
 
