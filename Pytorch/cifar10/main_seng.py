@@ -1,5 +1,5 @@
 # SENG
-# Copyright (c) 2021 Minghan Yang, Dong Xu, Zaiwen Wen, Mengyun Chen, Pengxiang Xu
+# Copyright (c) 2022 Minghan Yang, Dong Xu, Zaiwen Wen, Mengyun Chen, Pengxiang Xu
 # All rights reserved.
 #
 # This program is free software: you can redistribute it and/or modify
