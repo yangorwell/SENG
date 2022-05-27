@@ -50,7 +50,7 @@ parser.add_argument('--datadir', default='/datasets', help='Place where data are
 parser.add_argument('--lr', default=0.05, type=float, help='learning rate')
 parser.add_argument('--lr-decay-epoch', default=30, type=int, help='learning rate decay at n epoches')
 parser.add_argument('--lr-decay-rate', default=0.1, type=float, help='how much learning rate decays')
-parser.add_argument('--lr-scheme', default='staircase', type=str, help='how much learning rate decays')
+parser.add_argument('--lr-scheme','--lr-schedule',default='staircase', type=str, help='how much learning rate decays')
 parser.add_argument('--batch-size', '-b', default=256, type=int, help='batch size across all nodes')
 parser.add_argument('--epoch', default=100, type=int, help='epoch')
 parser.add_argument('--momentum', default=0.9, type=float, help='momentum')
@@ -66,7 +66,7 @@ parser.add_argument('--gpu', default=None, type=int, help='GPU id to use')
 parser.add_argument('-j', '--workers', default=4, type=int, metavar='N',
                     help='number of data loading workers (default: 4)')
 parser.add_argument('--trainset', default='cifar10',
-                    choices=['cifar10', 'cifar100','imagenette'],
+                    choices=['cifar10', 'cifar100','imagenette','svhn'],
                     help='training dataset')
 parser.add_argument('--arch', default='vgg16_bn',
                     choices=['vgg16', 'vgg16_bn', 'resnet50', 'resnet18'],
@@ -111,7 +111,8 @@ def adjust_learning_rate(optimizer, epoch, args):
         param_group['lr'] = lr
 
 def adjust_damping(preconditioner, epoch, args):
-    damping = args.damping * (args.lr_decay_rate**((epoch // args.lr_decay_epoch) / 5))
+    #damping = args.damping * (args.lr_decay_rate**((epoch // args.lr_decay_epoch) / 5))
+    damping = args.damping ## constant damping strategy. One can tune the damping strategy.  
     preconditioner.damping = damping
 
 
@@ -213,6 +214,16 @@ def main_worker(gpu, ngpus_per_node, args):
             transforms.ToTensor(),
             normalize,
         ]))
+    elif args.trainset == 'svhn':
+        transform_train=transforms.Compose([
+                    transforms.ToTensor(),
+                    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
+                ])
+
+        transform_test=transforms.Compose([
+                    transforms.ToTensor(),
+                    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
+                ])
     else:
         transform_train = transforms.Compose([
             transforms.RandomCrop(32, padding=4),
@@ -232,6 +243,9 @@ def main_worker(gpu, ngpus_per_node, args):
     elif args.trainset == 'cifar100':
         trainset = torchvision.datasets.CIFAR100(root=args.datadir, train=True, download=False, transform=transform_train)
         testset = torchvision.datasets.CIFAR100(root=args.datadir, train=False, download=False, transform=transform_test)
+    elif args.trainset == 'svhn':
+        trainset = torchvision.datasets.SVHN(root=args.datadir, split='train', download=True, transform=transform_train)
+        testset = torchvision.datasets.SVHN(root=args.datadir, split='test', download=True, transform=transform_test)
 
 
     if args.distributed:
