@@ -44,5 +44,4 @@ We hope that the package is useful for your application. If you have any bug rep
 
 ## Reference
 
-Minghan Yang, Dong Xu, Zaiwen Wen, Mengyun Chen, Pengxiang Xu, Sketchy Empirical Natural Gradient Methods for Deep Learning,  https://arxiv.org/abs/2006.05924
-
+Minghan Yang, Dong Xu, Zaiwen Wen, Mengyun Chen, Pengxiang Xu, Sketch-Based Empirical Natural Gradient Methods for Deep Learning. Journal of Scientific Computing 92.3 (2022): 1-29.
